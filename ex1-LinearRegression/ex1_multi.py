@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from matplotlib import pyplot as plt
 import numpy as np
 
 from feature_normalize import feature_normalize
@@ -51,7 +52,7 @@ print()
 #############################
 #      TEST PREDICTION      #
 #############################
-sqft = 3890
+sqft = 1650
 rooms = 3
 
 # Normalize and augment features with x0 = 1:
@@ -62,3 +63,14 @@ price_prediction = features.dot(theta)[0]
 
 print('Predicted price for a house with 1650 sq ft and 3 rooms: {}'.format(
     price_prediction))
+
+
+#############################
+#        DRAW PLOTS         #
+#############################
+
+# J cost / Number of iterations:
+plt.plot(J_history, '-')
+plt.xlabel('Number of iterations')
+plt.ylabel('J cost')
+plt.show()
