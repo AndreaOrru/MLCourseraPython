@@ -52,17 +52,17 @@ print()
 #############################
 #      TEST PREDICTION      #
 #############################
-sqft = 1650
+area = 1650
 rooms = 3
 
 # Normalize and augment features with x0 = 1:
-features = feature_normalize(np.array([[sqft, rooms]]), mu, sigma)[0]
+features = feature_normalize(np.array([[area, rooms]]), mu, sigma)[0]
 features = np.c_[[1], features]
 
 price_prediction = features.dot(theta)[0]
 
-print('Predicted price for a house with 1650 sq ft and 3 rooms: {}'.format(
-    price_prediction))
+print('Predicted price for a house with {} sq ft '
+      'and {} rooms: ${:.2f}'.format(area, rooms, price_prediction))
 
 
 #############################
